@@ -1,39 +1,85 @@
 import { motion } from 'framer-motion';
 
 const Projects = ({ heading = 'Projects', projects = [] }) => {
+  
   const fallbackProjects = [
-    {
-      title: 'Netflix GPT',
-      description:
-        'An AI-powered Netflix-style movie recommendation web app using React, Redux, Firebase Auth, TMDB API, and OpenAI GPT for smart, prompt-based suggestions.',
-      tech: ['React', 'Redux', 'Firebase Auth', 'TMDB API', 'OpenAI GPT', 'Tailwind CSS'],
-      image:
-        'https://images.pexels.com/photos/799131/pexels-photo-799131.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      github: 'https://github.com/Harshdubey04/Netflix-GPT',
-      demo: 'https://netflix-gpt-94rt.vercel.app',
-    },
-    {
-      title: 'Food Ordering App',
-      description:
-        'A full-stack food ordering app that pulls live restaurant and menu data from Swiggy via a Node/Express proxy, with a modern React frontend and responsive UI.',
-      tech: ['React', 'Redux', 'Node.js', 'Express', 'Axios', 'Swiggy API', 'Tailwind CSS'],
-      image:
-        'https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      github: 'https://github.com/Harshdubey04/FoodOrdering-App',
-      demo: 'https://food-ordering-app-azure-delta.vercel.app/',
-    },
-    {
-      title: 'Personal Portfolio Website',
-      description:
-        'A modern, animated personal portfolio built with React and Tailwind CSS, featuring smooth scrolling, dark/light theme toggle, responsive design, and interactive UI sections for projects, skills, and contact.',
-      tech: ['React', 'Vite', 'Tailwind CSS', 'Framer Motion', 'Context API'],
-      image:
-        'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      github: 'https://github.com/Harshdubey04/Portfolio',
-      demo: '#',
-    },
+  {
+    title: "CodeForge",
+    description:
+      "A full-stack online coding platform inspired by LeetCode with real-time code execution, AI-powered coding assistance, secure JWT authentication, role-based access control, leaderboards, submission history, and an admin dashboard for problem management.",
+    tech: [
+      "React",
+      "Redux Toolkit",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Redis",
+      "Judge0 API",
+      "Gemini AI",
+      "JWT",
+      "Tailwind CSS",
+    ],
+    image:
+      "https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    github: "https://github.com/Harshdubey04/codeforge",
+    demo: "https://codeforge-frontend-gules.vercel.app/",
+  },
 
-  ];
+  {
+    title: "DevVerse Backend",
+    description:
+      "A scalable backend for a developer networking platform featuring JWT authentication, profile management, connection requests, feed APIs, secure validation, and MongoDB data modeling following RESTful architecture.",
+    tech: [
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Mongoose",
+      "JWT",
+      "REST APIs",
+      "bcrypt",
+    ],
+    image:
+      "https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    github: "https://github.com/Harshdubey04/DevVerse",
+    demo: "",
+  },
+
+  {
+    title: "Food Ordering App",
+    description:
+      "A responsive food ordering application that fetches live restaurant and menu data using the Swiggy API, featuring search, filters, Redux-powered cart management, authentication, and a modern user interface.",
+    tech: [
+      "React",
+      "Redux Toolkit",
+      "Node.js",
+      "Express.js",
+      "Swiggy API",
+      "Tailwind CSS",
+    ],
+    image:
+      "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    github: "https://github.com/Harshdubey04/FoodOrdering-App",
+    demo: "https://food-ordering-app-azure-delta.vercel.app/",
+  },
+
+  {
+    title: "Netflix GPT",
+    description:
+      "An AI-powered movie recommendation platform that combines TMDB with Gemini AI to provide intelligent movie suggestions, secure authentication, and a responsive React interface.",
+    tech: [
+      "React",
+      "Redux Toolkit",
+      "Firebase",
+      "TMDB API",
+      "Gemini AI",
+      "Tailwind CSS",
+    ],
+    image:
+      "https://images.pexels.com/photos/799131/pexels-photo-799131.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    github: "https://github.com/Harshdubey04/Netflix-GPT",
+    demo: "https://netflix-gpt-94rt.vercel.app",
+  },
+];
 
   const list = projects.length ? projects : fallbackProjects;
 
