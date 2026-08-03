@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import emailjs from "@emailjs/browser";
 
 const contactContainer = {
   hidden: { opacity: 0, y: 24 },
@@ -36,20 +37,44 @@ const Contact = ({
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (isSubmitting) return;
-    setIsSubmitting(true);
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    // Simulated send – later can be replaced with EmailJS or API
+  if (isSubmitting) return;
+
+  setIsSubmitting(true);
+
+  try {
+    await emailjs.send(
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+      {
+        name: form.name,
+        email: form.email,
+        message: form.message,
+      },
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    );
+
+    setIsSubmitted(true);
+
+    setForm({
+      name: "",
+      email: "",
+      message: "",
+    });
+
     setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-      setForm({ name: '', email: '', message: '' });
-      setTimeout(() => setIsSubmitted(false), 3000);
-    }, 900);
-  };
+      setIsSubmitted(false);
+    }, 3000);
 
+  } catch (error) {
+    console.error(error);
+    alert("Failed to send message. Please try again.");
+  } finally {
+    setIsSubmitting(false);
+  }
+};
   return (
     <section
       id="contact"
@@ -87,6 +112,7 @@ const Contact = ({
                   id="name"
                   name="name"
                   type="text"
+                  required
                   autoComplete="name"
                   value={form.name}
                   onChange={handleChange}
